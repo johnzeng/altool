@@ -30,3 +30,34 @@ int main(int argc, char *argv[])
     }
     return 0;
 }
+
+//bipart checking
+vector<int> g[MAXN];
+int mark[MAXN];
+int cnt, color_cnt;
+bool isBipart;
+
+void dfs(int root, int color)
+{
+    mark[root] = color;
+    int new_color = color ^ 3;
+    cnt++;
+    if(color == 1)color_cnt++;
+
+    for(auto it : g[root])
+    {
+        DEBUG("dfs, %d", it);
+        if(mark[it] == 0)
+        {
+            dfs(it, new_color);
+            if(false == isBipart)return;
+        }
+        else if(mark[it] != new_color)
+        {
+            DEBUG("failed %d, color %d, makr[it]:%d", it, new_color,mark[it]);
+            isBipart = false;
+            return;
+        }
+    }
+}
+

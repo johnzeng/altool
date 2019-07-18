@@ -1,6 +1,6 @@
 #define MAXN 0xefffffff
 
-long long int a[1000000];
+long long int a[MAXN];
 
 int lowbit(int x)
 {
