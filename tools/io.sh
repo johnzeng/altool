@@ -26,7 +26,7 @@ else
         then
             echo $1$i.py
             echo -------------------------------------------
-            ./a.out  < fifo_in_from_tester| python3 $1$i.py > fifo_in_from_tester
+            ./a.out < fifo_in_from_tester| python3 $1$i.py > fifo_in_from_tester
             cat log
             cat anser
             rm log
